@@ -1,0 +1,96 @@
+:root {
+  color-scheme: dark;
+  --gold: #d9b56a;
+  --gold-soft: #f4dfaa;
+  --ink: #171411;
+  --panel: rgba(18, 20, 18, 0.9);
+  --paper: #e2d6bf;
+  --paper-ink: #241c14;
+  --line: rgba(236, 207, 142, 0.36);
+  --green: #77d06e;
+  --red: #e17763;
+  --blue: #6fb9e8;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Georgia, "Hiragino Mincho ProN", "Yu Mincho", serif;
+  background:
+    radial-gradient(circle at 50% 18%, rgba(108, 92, 52, 0.34), transparent 38rem),
+    linear-gradient(135deg, #0a0d0c, #1f1b15 52%, #070909);
+  color: var(--gold-soft);
+}
+
+button {
+  border: 1px solid var(--line);
+  background: linear-gradient(#3a3022, #171411);
+  color: var(--gold-soft);
+  border-radius: 0.35rem;
+  padding: 0.45rem 0.8rem;
+  font: inherit;
+  cursor: pointer;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.04), 0 0.15rem 0.4rem rgba(0,0,0,0.35);
+}
+
+button:hover { border-color: var(--gold); color: white; }
+button:disabled { opacity: 0.45; cursor: not-allowed; }
+
+.game-shell { width: min(100vw, 1600px); margin: 0 auto; padding: 0.75rem; }
+
+.topbar {
+  display: grid;
+  grid-template-columns: 1fr 1fr 2.1fr 1fr;
+  gap: 0.75rem;
+  align-items: center;
+  border: 1px solid var(--line);
+  border-radius: 0.45rem;
+  background: linear-gradient(180deg, rgba(24,22,19,0.98), rgba(11,12,11,0.98));
+  padding: 0.6rem 0.8rem;
+  box-shadow: 0 0.35rem 1.1rem rgba(0,0,0,0.42);
+}
+
+.topbar section { display: flex; align-items: center; gap: 0.65rem; min-width: 0; }
+.topbar strong { font-size: 1.45rem; letter-spacing: 0.04em; }
+.label { margin: 0; color: #b9aa85; font-size: 0.85rem; }
+.crest, .coin { display: grid; place-items: center; width: 2.3rem; height: 2.3rem; border: 1px solid var(--gold); border-radius: 50%; color: var(--gold); font-size: 1.45rem; }
+.coin { background: #8d6726; color: #ffe8a3; }
+.title-block { justify-content: center; text-align: center; }
+.title-block h1 { margin: 0; color: var(--gold); font-size: clamp(1.3rem, 2vw, 2rem); letter-spacing: 0.08em; }
+.title-block p { margin: 0.1rem 0 0; }
+.turn-block { justify-content: end; }
+
+.content-grid { display: grid; grid-template-columns: 250px minmax(600px, 1fr) 330px; gap: 0.75rem; margin-top: 0.75rem; }
+.panel, .paper-card {
+  border: 1px solid var(--line);
+  border-radius: 0.45rem;
+  background: var(--panel);
+  box-shadow: 0 0.35rem 1.1rem rgba(0,0,0,0.38);
+}
+.panel { padding: 0.75rem; min-height: 720px; }
+.panel h2, .paper-card h2 { color: var(--gold); margin: 0.35rem 0 0.65rem; font-size: 1.1rem; border-bottom: 1px solid var(--line); padding-bottom: 0.45rem; }
+.canvas-wrap { position: relative; border: 1px solid var(--line); border-radius: 0.45rem; overflow: hidden; min-height: 720px; background: #18241f; }
+canvas { display: block; width: 100%; height: 100%; image-rendering: auto; }
+ul { padding-left: 1.1rem; }
+li { margin: 0.45rem 0; color: #dfd2b7; }
+.stat { display: flex; justify-content: space-between; gap: 1rem; padding: 0.25rem 0; border-bottom: 1px solid rgba(255,255,255,0.07); }
+.good { color: var(--green); }
+.bad { color: var(--red); }
+.blue { color: var(--blue); }
+.action-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin: 0.75rem 0; }
+.bottom-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.45rem; margin-top: 0.55rem; }
+.paper-card { background: var(--paper); color: var(--paper-ink); padding: 0.75rem; min-height: 150px; }
+.paper-card h2 { color: #2b2117; border-bottom-color: rgba(50,30,10,0.25); text-align: center; }
+.paper-card .stat { border-bottom-color: rgba(0,0,0,0.12); }
+#messageBar { text-align: center; margin-top: 0.55rem; border: 1px solid rgba(255,255,255,0.09); background: rgba(0,0,0,0.48); border-radius: 0.35rem; padding: 0.65rem; letter-spacing: 0.05em; }
+.badge { display: inline-block; border: 1px solid rgba(0,0,0,0.2); border-radius: 0.35rem; padding: 0.15rem 0.35rem; margin: 0.1rem; background: rgba(255,255,255,0.09); }
+.progress { height: 0.55rem; background: rgba(0,0,0,0.45); border: 1px solid var(--line); border-radius: 1rem; overflow: hidden; margin: 0.35rem 0; }
+.progress > span { display: block; height: 100%; background: linear-gradient(90deg, #2c78d0, #87d0ff); }
+
+@media (max-width: 1200px) {
+  .topbar, .content-grid, .bottom-grid { grid-template-columns: 1fr; }
+  .panel { min-height: auto; }
+  .canvas-wrap { min-height: 520px; }
+}
