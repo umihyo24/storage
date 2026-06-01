@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>交易路開拓シミュレーション</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="game-shell">
+    <header class="topbar">
+      <section>
+        <span class="crest">⚖</span>
+        <div>
+          <p class="label">交易ギルド総帥</p>
+          <strong id="guildName">名声 0</strong>
+        </div>
+      </section>
+      <section>
+        <span class="coin">●</span>
+        <div>
+          <p class="label">資金</p>
+          <strong id="treasury">0</strong>
+        </div>
+      </section>
+      <section class="title-block">
+        <h1>交易路開拓シミュレーション</h1>
+        <p>経済回路を発見し、世界をつなげ</p>
+      </section>
+      <section class="turn-block">
+        <strong id="turnLabel">ターン 0</strong>
+        <button id="endTurnButton">ターン終了</button>
+      </section>
+    </header>
+
+    <section class="content-grid">
+      <aside class="panel left-panel">
+        <h2>進行中の探索</h2>
+        <div id="explorationPanel"></div>
+        <button id="exploreButton">探索開始</button>
+        <h2>噂情報</h2>
+        <ul id="rumorList"></ul>
+        <h2>目標</h2>
+        <ul id="goalList"></ul>
+      </aside>
+
+      <section class="canvas-wrap">
+        <canvas id="gameCanvas" width="1120" height="720" aria-label="交易ネットワークゲーム画面"></canvas>
+      </section>
+
+      <aside class="panel right-panel">
+        <h2 id="selectedName">未選択</h2>
+        <div id="selectedPanel"></div>
+        <div class="action-row">
+          <button id="buildRoadButton">道路建設</button>
+          <button id="routeButton">交易路作成</button>
+        </div>
+        <h2>キャラバン隊</h2>
+        <div id="caravanPanel"></div>
+      </aside>
+    </section>
+
+    <section class="bottom-grid">
+      <article class="paper-card">
+        <h2>経済回路</h2>
+        <div id="circuitPanel"></div>
+      </article>
+      <article class="paper-card">
+        <h2>交易の流れ</h2>
+        <div id="tradePanel"></div>
+      </article>
+      <article class="paper-card">
+        <h2>収入内訳（今週）</h2>
+        <div id="revenuePanel"></div>
+      </article>
+      <article class="paper-card">
+        <h2>拠点の生産（毎週）</h2>
+        <div id="productionPanel"></div>
+      </article>
+    </section>
+
+    <footer id="messageBar">未知を発見し、交易路を築き、経済回路を完成させよ。</footer>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
